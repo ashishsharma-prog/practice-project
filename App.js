@@ -1,9 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './Navigator/AppNavigator';
+import { legacy_createStore as createStore} from 'redux'
+import { combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import ProductReducer from './store/reducers/ProductReducer';
+
+
+const rootreducer=combineReducers({
+  products:ProductReducer
+})
+const store=createStore(rootreducer)
 export default function App() {
   return (
-   <AppNavigator/>
+    
+    <Provider store={store}>
+    
+    
+    
+    <AppNavigator/>
+    
+        </Provider>
+    
   );
 }
 
