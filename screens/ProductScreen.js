@@ -15,6 +15,7 @@ const ProductScreen = (props) => {
          image={itemData.item.imageUrl}
          price={itemData.item.price}
          navigation={props.navigation}
+         itemData={itemData.item}//pure item pass kardiya as aprop
          />
         }
          />

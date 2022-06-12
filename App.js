@@ -5,10 +5,11 @@ import { legacy_createStore as createStore} from 'redux'
 import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import ProductReducer from './store/reducers/ProductReducer';
-
+import CartReducer from './store/reducers/CartReducer';
 
 const rootreducer=combineReducers({
-  products:ProductReducer
+  products:ProductReducer,
+  cartreducer:CartReducer
 })
 const store=createStore(rootreducer)
 export default function App() {

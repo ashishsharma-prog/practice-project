@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View ,Image,Button} from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
+import { useDispatch, useSelector } from "react-redux";
+import * as CartActions from '../store/actions/CartAction'
 const ProductItem = (props) => {
-  
+  const dispatch=useDispatch();
   return (
     <View>
       <TouchableOpacity
@@ -36,7 +38,12 @@ const ProductItem = (props) => {
           </View>
        <View style={{marginLeft:80}}>
        <Button color="#F0851B"
-              title="Add to cart"/>
+              title="Add to cart"
+              onPress={() => {
+                dispatch(CartActions.addToCart(props.itemData));
+              }}
+              />
+             
        </View>
               
 
