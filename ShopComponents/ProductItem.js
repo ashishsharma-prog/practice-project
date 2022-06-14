@@ -1,10 +1,45 @@
 import { StyleSheet, Text, View ,Image,Button} from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import { TouchableOpacity } from 'react-native'
 import { useDispatch, useSelector } from "react-redux";
 import * as CartActions from '../store/actions/CartAction'
+import { Feather } from '@expo/vector-icons'; 
+import IconBadge from 'react-native-icon-badge';
 const ProductItem = (props) => {
   const dispatch=useDispatch();
+  const Quantity=useSelector(state=>state.cartreducer.totalquantity)
+  useLayoutEffect(()=>{
+    props.navigation.setOptions({
+      title: "Chats",
+     
+      headerRight: () => (
+       <TouchableOpacity onPress={()=>{
+        props.navigation.navigate("Cart")
+       }}>
+     {/* <Feather name="shopping-cart" size={24} color="black" /> */}
+     <IconBadge
+            MainElement={
+                 <Feather
+                 name="shopping-cart"
+                    size={40}
+                    style={{ marginBottom: -3 }}
+                    color="black"
+                   />
+            }
+            BadgeElement={
+              <Text style={{color:'black'}}>{Quantity}</Text>
+            }
+            IconBadgeStyle={
+              {width:20,
+              height:20,
+              backgroundColor: "#F0851B"}
+            }
+            Hidden={Quantity==0}
+        />
+       </TouchableOpacity>
+      ),
+    });
+  },[props.navigation,Quantity])
   return (
     <View>
       <TouchableOpacity
