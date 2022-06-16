@@ -3,9 +3,12 @@ import { TouchableOpacity } from 'react-native'
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from '../ShopComponents/CartItem';
 import * as CartActions from '../store/actions/CartAction'
+import * as OrderActions from '../store/actions/OrderAction'
 const CartScreen = (props) => {
   const amount=useSelector(state=>state.cartreducer.totalamount)
   const Quantity=useSelector(state=>state.cartreducer.totalquantity)
+  const temp=useSelector(state=>state.cartreducer.item);
+  console.log(temp)
   const cartItems=useSelector(state=>{
     const transformedProduct=[]
     for(const key in state.cartreducer.item){
@@ -59,6 +62,9 @@ const CartScreen = (props) => {
        <Button title="BUY NOW"
         color="#F0851B" 
         disabled={cartItems.length === 0 }
+        onPress={()=>{
+          dispatch(OrderActions.add_order(cartItems,amount,Quantity))
+        }}
        />
    </View>
    

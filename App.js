@@ -6,10 +6,11 @@ import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import ProductReducer from './store/reducers/ProductReducer';
 import CartReducer from './store/reducers/CartReducer';
-
+import OrderReducer from './store/reducers/OrderReducer';
 const rootreducer=combineReducers({
   products:ProductReducer,
-  cartreducer:CartReducer
+  cartreducer:CartReducer,
+  orderreducer:OrderReducer
 })
 const store=createStore(rootreducer)
 export default function App() {

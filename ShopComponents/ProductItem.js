@@ -64,7 +64,7 @@ const ProductItem = (props) => {
           <Button color="#F0851B"
               title="View Details"
               onPress={() => {
-                props.navigation.navigate("DetailScreen", {
+                props.navigation.navigate("Order", {
                   id: props.id,
                   title: props.title,
                 });
