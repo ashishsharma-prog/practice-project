@@ -1,5 +1,5 @@
 import { ADD_ORDER } from "../actions/OrderAction"
-import OrderItem from "../../models/OrderModel";
+import OrderModel from "../../models/OrderModel";
 const initialState={
     orders:[]
 }
@@ -11,7 +11,7 @@ switch(action.type){
         const orderItem=action.orderData.items;
         const Tamount=action.orderData.amount;
         const Tquantity=action.orderData.quantity;
-        const newOrder=new OrderItem(
+        const newOrder=new OrderModel(
             new Date().toString(),
             orderItem,
             Tamount,

@@ -1,4 +1,5 @@
-class OrderItem{
+import moment from 'moment'
+class OrderModel{
     constructor(id,items,totalAmount,totalQuantity,date){
         this.id = id;
         this.items=items;
@@ -11,4 +12,4 @@ class OrderItem{
             return moment(this.date).format(" MMMM Do YYYY, h:mm:ss a")
         }
 }
-export default OrderItem
+export default OrderModel

@@ -7,8 +7,7 @@ import * as OrderActions from '../store/actions/OrderAction'
 const CartScreen = (props) => {
   const amount=useSelector(state=>state.cartreducer.totalamount)
   const Quantity=useSelector(state=>state.cartreducer.totalquantity)
-  const temp=useSelector(state=>state.cartreducer.item);
-  console.log(temp)
+ 
   const cartItems=useSelector(state=>{
     const transformedProduct=[]
     for(const key in state.cartreducer.item){
@@ -24,7 +23,7 @@ const CartScreen = (props) => {
     return  transformedProduct.sort((a, b) =>
     a.productId > b.productId ? 1 : -1);
 })
-  console.log(cartItems.length)
+  
  const dispatch=useDispatch()
   return (
     
